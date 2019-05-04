@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css?family=Acme");
+@import url('https://fonts.googleapis.com/css?family=Concert+One&subset=latin-ext');
+
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+	--color-ltblue: rgb(15, 115, 250);
+	--color-light-gray: rgba(240, 240, 240, .8);
+	--color-dark-gray: #222;
+	--black-shadow: 0.5rem 0.5rem 0.7rem 0 rgba(0, 0, 0, .5);
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+
+html, body, main {
+	width: 100vw;
+  height: 100vh;
+}
+
+html {
+	/* font-size: 10px; this is the root font-size, defined in html, 
+	now 1rem = 10px, not 16px by default */
+	font-size: 62.5%; /* 10px/16px = 0.625 */
+}
+
+body {
+	font-family: "Acme", "Concert One", cursive;
+	letter-spacing: 0.12rem;
+}
+
+main {
+	/* background-image: url("../resources/img/weather-img/clear-day.jpg"); */
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center; /* right bottom  - 100% 100%, left top  - 0 0 (default) */
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	outline: none; /* disables outline of selected element */
+	cursor: pointer;
+}
+
+/* ------------------------- Loader ------------------------- */
+#app-loader {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../resources/img/bg-sun-loading.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 6.4rem;
+  height: 6.4rem;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 0.6rem;
+  box-sizing: border-box;
+  border: 2.6rem solid var(--color-black);
+  border-color: var(--color-black) transparent var(--color-black) transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+/* ------------------------- Helper classes ------------------------- */
+.center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.center_x {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.center_y {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.display-none {
+	display: none !important;
+}
+
+.display-flex {
+	display: flex;
+	width: 100%;
+	align-items: center;
+}
+
+.disabled {
+	cursor: not-allowed !important;
+}
+
+.icon-s {
+	width: 3.6rem;
+	height: 3.6rem;
+}
+
+.icon-m {
+	width: 4.8rem;
+	height: 4.8rem;
+}
+
+.icon-l {
+	width: 6.4rem;
+	height: 6.4rem;
+}
+
+.icon-xl {
+	width: 9rem;
+	height: 9rem;
+}
+
+/* ------------------------- Upper section ------------------------- */
+#upper-section {
+	width: 100%;
+	height: 8%;
+	border-bottom: 0.1rem solid var(--color-black);
+	box-shadow: var(--black-shadow);
+	background-color: var(--color-light-gray);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#logo-text-div {
+	display: flex;
+	margin-left: 2rem;
+}
+
+#logo-icon {
+	width: 5rem;
+	height: 5rem;
+}
+
+#dawn-weather {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 0.5rem;
+	font-size: 2.4rem;
+}
+
+#dawn-weather span {
+	margin: -0.5rem 0;
+}
+
+#search-form {
+	display: flex;
+	align-content: center;
+	margin-right: 8rem;
+}
+
+input#location-input {
+	width: 24rem;
+	height: 3.6rem;
+	background-color: transparent;
+	outline: none;
+	border: 0.3rem solid var(--color-black);
+	border-radius: 0.7rem;
+	font-size: 1.8rem;
+	padding-left: 0.5rem;
+}
+
+input#location-input:focus {
+	border: 0.3rem solid var(--color-ltblue);
+}
+
+#add-location-btn {
+	margin-left: 0.5rem;
+}
+
+#open-storage-btn {
+	margin: 0 2rem;
+}
+
+/* ------------------------- Today weather container ------------------------- */
+#today-weather-section {
+	width: 100%;
+	height: 62%;
+	position: relative;
+	color: var(--color-black);
+}
+
+#tws-son {
+	background-color: var(--color-light-gray);
+	width: 40%;
+	height: 80%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 0.1rem solid var(--color-black);
+	border-radius: 1rem;
+	box-shadow: var(--black-shadow);
+	padding: 2rem;
+	margin: 4rem 1rem 4rem ;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#label-24h-container {
+	justify-content: space-between;
+}
+
+#location-label {
+	font-size: 4rem;
+	font-weight: 900;
+	letter-spacing: 0.2rem;
+}
+
+#location-label::first-letter {
+	text-transform: uppercase;
+}
+
+#toggle-weather-btn:hover,
+#toggle-weather-btn:active {
+	transform: scale(1.15);
+}
+
+#temperature-summary-container {
+	justify-content: space-evenly;
+}
+
+#currently-weather-icon {
+	width: 15rem;
+	height: 15rem;
+}
+
+#temperature-label {
+	font-size: 5rem;
+	font-weight: 900;
+}
+
+#summary-label {
+	font-size: 3rem;
+	text-align: center;
+}
+
+#h-w-p-c-container {
+	justify-content: space-between;
+}
+
+#h-w-p-c-container div {
+	display: flex;
+	align-items: center;
+}
+
+#h-w-p-c-container div span {
+	font-size: 2.2rem;
+	margin-left: 0.5rem;
+}
+
+/* ------------------------- Lower section ------------------------- */
+#lower-section {
+	width: 100%;
+	height: 30%;
+	position: relative;
+	color: var(--color-black);
+	font-size: 2rem;
+}
+
+.lower-section-body {
+	width: 100%;
+	height: 100%;
+}
+
+/* ------------------------- Daily weather ------------------------- */
+#daily-weather-div {
+	transition: opacity .5s;
+	display: flex;
+}
+
+.day-box {
+	background-color: var(--color-light-gray);
+	margin: 1rem;
+	border: 0.1rem solid var(--color-black);
+	border-radius: 1rem;
+	box-shadow: var(--black-shadow);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#days-of-week-div {
+	width: 100%;
+	text-align: center;
+	word-spacing: 0.5rem;
+	border-bottom: 0.1rem solid var(--color-dark-gray);
+}
+
+#day-name-span {
+	font-size: 2.8rem;
+	font-weight: 600;
+}
+
+#day-month-span {
+	color: #444;
+	font-size: 2.4rem;
+}
+
+.day-box div:last-of-type { /* max-min temperature div */
+	margin-bottom: 1rem;
+	font-size: 2.4rem;
+}
+
+#max-temp {
+	color: red;
+}
+
+#min-temp {
+	color: blue;
+}
+
+/* ------------------------- Hourly weather ------------------------- */
+#hourly-weather-div {
+	position: fixed;
+	bottom: -30%;
+	height: 25%;
+	border-top: 0.05rem solid var(--color-black);
+	transition: bottom .5s;
+	display: flex;
+	overflow-x: scroll;
+}
+
+.hour-box {
+	background-color: var(--color-light-gray);
+	border: 0.05rem solid var(--color-black);
+	flex: 0 0 12rem;
+	box-shadow: var(--black-shadow);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.hour-box span {
+	font-size: 2.4rem;
+}
+
+/* ------------------------- Storage section ------------------------- */
+#storage-section {
+	background-color: rgb(202, 202, 202);
+	color: var(--color-black);
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 30%;
+	height: 100%;
+	border-left: 0.1rem solid var(--color-black);
+	z-index: 4;
+	transition: right .5s;
+}
+
+#storage-section > div {
+	width: 100%;
+	height: 100%;
+}
+
+#close-storage-btn {
+	position: absolute;
+	top: 0.5rem;
+	right: 1.5rem;
+	color: var(--color-black);
+	font-size: 3.2rem;
+}
+
+#stored-places-label {
+	padding: 6rem 2rem 5rem;
+	font-size: 3.2rem;
+	text-align: center;
+	letter-spacing: 0.15rem;
+}
+
+#stored-places-div {
+	width: 100%;
+	height: calc(100% - 15rem);
+	font-size: 1.8rem;
+	padding: 1rem 2rem;
+	overflow-y: scroll;
+}
+
+#stored-places-div::-webkit-scrollbar { 
+	display: none; 
+}
+
+.stored-place-box {
+	border-bottom: 0.2rem solid rgb(252, 147, 9);
+	padding-bottom: 0.5rem;
+	margin-bottom: 2rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.stored-place-box > div:first-child:hover,
+.stored-place-box > div:first-child:active {
+	color: var(--color-ltblue);
+}
+
+.stored-place-box > div:first-child > h1::first-letter {
+	text-transform: uppercase;
+}
+
+.stored-place-box > div:last-child {
+	text-align: right;
+}
+
+.set-place {
+	flex: 1 1 0;
+	margin-right: 5rem;
+	cursor: pointer;
+}
+
+.remove-stored-place {
+	font-size: 2rem;
+	color: var(--color-ltblue);
+}
+
+.remove-stored-place:hover,
+.remove-stored-place:active {
+	color: red;
+	transform: scale(1.2);
+}

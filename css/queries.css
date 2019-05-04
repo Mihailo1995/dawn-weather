@@ -1,0 +1,45 @@
+/*
+--- Width ---
+1em = 16px      (em is best for media queries)
+
+1800px +:                   fz: 75% (12px)      Big desktop
+1200 - 1800px (112.5em):    fz: 62.5% (10px)    Most of desktop/laptop screens
+ 900 - 1200px (75em):       fz: 56.25% (9px)    Tablet landscape
+ 600 -  900px (56.25em):    fz: 50% (8px)       Tablet portrait
+   0 -  600px (37.5em):     fz: 50% (8px)       Phone
+*/
+
+/*--------------------- Most of desktop/laptop screens ---------------------*/
+@media only screen and (max-width: 112.5em) {
+    main { background-color: red; }
+    html { font-size: 62.5%; }
+}
+
+/*--------------------- Tablet landscape ---------------------*/
+@media only screen and (max-width: 75em) {
+    main { background-color: green; }
+    html { font-size: 56.25%; }
+    #tws-son { width: 50%; }
+}
+
+/*--------------------- Tablet portrait ---------------------*/
+@media only screen and (max-width: 56.25em) {
+    main { background-color: blue; }
+    html { font-size: 50%; }
+    #tws-son { width: 65%; }
+    #storage-section { width: 40%; }
+}
+
+/*--------------------- Phone ---------------------*/
+@media only screen and (max-width: 37.5em) {
+    main { background-color: gold; }
+    #tws-son { width: 100%; }
+    #location-input { width: 15rem; }
+    #storage-section { width: 60%; }
+}
+
+/*--------------------- Big desktop ---------------------*/
+@media only screen and (min-width: 112.5em) {
+    main { background-color: black; }
+    html { font-size: 75%; }
+}

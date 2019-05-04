@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- for Chrome, Firefox, Opera phone app -->
+    <meta name="theme-color" content="#0f73fa">
+    <meta name="description"
+        content="Find out most precise weather conditions and forecasts for any place in the world.">
+    <meta name="keywords" content="vreme, vremenska, prognoza, weather, application, app">
+    <meta name="author" content="Mihailo Ljubenković">
+
+    <title>Dawn Weather</title>
+    <link rel="shortcut icon" href="resources/icons/logo-icon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/queries.css">
+</head>
+
+<body>
+    <div id="app-loader">
+        <div class="lds-hourglass center"></div>
+    </div>
+
+    <main hidden>
+        <!-- Upper section -->
+        <section id="upper-section">
+            <!-- Logo -->
+            <div id="logo-text-div">
+                <img src="resources/icons/logo-icon.png" alt="Logo icon" id="logo-icon">
+                <div id="dawn-weather">
+                    <span>Dawn</span>
+                    <span>Weather</span>
+                </div>
+            </div>
+            <!-- Search location  -->
+            <form id="search-form">
+                <input type="search" placeholder="Search locations..." id="location-input">
+                <button id="add-location-btn" type="submit" class="disabled" title="Add location" disabled>
+                    <img class="icon-s" src="resources/icons/add-gray.png" alt="Add icon">
+                </button>
+            </form>
+            <!-- Storge button -->
+            <button id="open-storage-btn" title="Storage">
+                <img class="icon-s" src="resources/icons/storage.png" alt="Storage icon">
+            </button>
+        </section>
+
+        <!-- Today weather section -->
+        <section id="today-weather-section">
+            <div id="tws-son">
+                <div class="display-flex" id="label-24h-container">
+                    <h1 id="location-label">Belrade</h1>
+                    <button id="toggle-weather-btn" title="Weather for the next 24h">
+                        <img src="resources/icons/24-hours.png" alt="24h icon" class="icon-m" data-active="false">
+                    </button>
+                </div>
+
+                <div class="display-flex" id="temperature-summary-container">
+                    <!-- Temperature -->
+                    <h1 id="temperature-label" title="Temperature">20 &#176;C</h1>
+                    <!-- Weather icon -->
+                    <div>
+                        <img id="currently-weather-icon" src="resources/icons/weather-icons/clear-day.png" alt="Weather icon">
+                    </div>
+                    <!-- Summary -->
+                    <p id="summary-label" title="Summary">Clear day</p>
+                </div>
+
+                <div class="display-flex" id="h-w-p-c-container">
+                    <!-- Humidity -->
+                    <div title="Humidity">
+                        <img class="icon-s" src="resources/icons/humidity.png" alt="Humidity icon">
+                        <span id="humidity-label">20%</span>
+                    </div>
+                    <!-- Wind speed -->
+                    <div title="Wind speed">
+                        <img class="icon-s" src="resources/icons/wind-speed.png" alt="Wind speed">
+                        <span id="wind-speed-label">5 km/h</span>
+                    </div>
+                    <!-- Pressure -->
+                    <div title="Pressure">
+                        <img class="icon-s" src="resources/icons/pressure.png" alt="Pressure">
+                        <span id="pressure-label">1011 hPa</span>
+                    </div>
+                    <!-- Cloud cover -->
+                    <div title="Cloud cover">
+                        <img class="icon-s" src="resources/icons/cloud-cover.png" alt="Cloud cover">
+                        <span id="cloud-cover-label">50%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lower section -->
+        <section id="lower-section">
+            <!-- Daily weather -->
+            <div id="daily-weather-div" class="lower-section-body">
+                <div class="display-flex day-box display-none">
+                    <div id="days-of-week-div">
+                        <span id="day-name-span">Monday</span>
+                        <span id="day-month-span">1/5</span>
+                    </div>
+                    <div>
+                        <img class="icon-xl" src="resources/icons/weather-icons/clear-day.png" alt="Weather icon">
+                    </div>
+                    <div>
+                        <span id="max-temp">23&#176;</span> | <span id="min-temp">11&#176;</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hourly weather -->
+            <div id="hourly-weather-div" class="lower-section-body" data-visible="false">
+                <div class="display-flex hour-box display-none">
+                    <div>
+                        <span id="hour-span">19:00</span>
+                    </div>
+                    <div>
+                        <img class="icon-l" src="resources/icons/weather-icons/clear-day.png" alt="Weather icon">
+                    </div>
+                    <div>
+                        <span id="current-temp">18&#176;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Storage section -->
+        <section id="storage-section">
+            <button id="close-storage-btn" title="Close">&#10006;</button>
+
+            <div>
+                <h1 id="stored-places-label">Stored places:</h1>
+                <!-- Stored places -->
+                <div id="stored-places-div">
+                    <!-- <div class="display-flex stored-place-box">
+                        <div class="set-place">
+                            <h1 class="set-place">Belgrade</h1>
+                        </div>
+                        <div>
+                            <button class="remove-stored-place">&#10006;</button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
