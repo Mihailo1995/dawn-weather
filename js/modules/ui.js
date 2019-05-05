@@ -16,11 +16,9 @@ const UI = function () {
 
     // Storage button
     const _showStorage = () => storage.style.right = 0;
-    const _hideStorage = () => storage.style.right = `-${Math.round(storage.offsetWidth / window.innerWidth * 100)}%`;
-    // document.querySelector("#open-storage-btn").onclick = _showStorage;
-    // document.querySelector("#close-storage-btn").onclick = _hideStorage;
-    document.querySelector("#open-storage-btn").addEventListener("click", _showStorage);
-    document.querySelector("#close-storage-btn").addEventListener("click", _hideStorage);
+    const _hideStorage = () => storage.style.right = `-${Math.round(storage.offsetHeight / window.innerHeight * 100)}%`;
+    document.querySelector("#open-storage-btn").onclick = _showStorage;
+    document.querySelector("#close-storage-btn").onclick = _hideStorage;
 
     // Toggle daily/hourly weather
     const _toggleWeather = () => {
@@ -39,7 +37,7 @@ const UI = function () {
             dailyWeather.style.opacity = 0;
         } else if (active === "true") {
             toggleIcon.setAttribute("data-active", "false");
-            hourlyWeather.style.bottom = "-30%";
+            hourlyWeather.style.bottom = `-${Math.round(hourlyWeather.offsetHeight / window.innerHeight * 100)}%`;
             toggleIcon.setAttribute("src", "resources/icons/24-hours.png");
             toggleIcon.setAttribute("alt", "24h icon7days icon");
             toggleBtn.setAttribute("title", "Weather for the next 24h");

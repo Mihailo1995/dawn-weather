@@ -4,42 +4,245 @@
 
 1800px +:                   fz: 75% (12px)      Big desktop
 1200 - 1800px (112.5em):    fz: 62.5% (10px)    Most of desktop/laptop screens
+1024 - 1366px (85.375em)    fz: 62.5% (10px)    iPad Pro (1024 x 1366)
  900 - 1200px (75em):       fz: 56.25% (9px)    Tablet landscape
+ 768 -  900px (56.25em)     fz: 56.25% (9px)    iPad (768 x 1024)
  600 -  900px (56.25em):    fz: 50% (8px)       Tablet portrait
-   0 -  600px (37.5em):     fz: 50% (8px)       Phone
+ 600 -  768px (48em);                           Tablet
+ 480 -  600px (37.5em):                         Phones
+ 360 -  480px (30em)
+ 320 -  360px (22.5em)                          Galaxy S5, Sony Xperia M4 Aqua
+   0 -  320px (20em)                            iphone SE
 */
 
-/*--------------------- Most of desktop/laptop screens ---------------------*/
+/*-------------------------------- 1800px --------------------------------*/
 @media only screen and (max-width: 112.5em) {
     main { background-color: red; }
     html { font-size: 62.5%; }
 }
 
-/*--------------------- Tablet landscape ---------------------*/
+/*-------------------------------- 1200px --------------------------------*/
 @media only screen and (max-width: 75em) {
     main { background-color: green; }
     html { font-size: 56.25%; }
-    #tws-son { width: 50%; }
+    #tws-son { width: 60%; }
+    #today-weather-section { height: 67%; }
+    #currently-weather-icon {
+        width: 12rem;
+        height: 12rem;
+    }
+    #lower-section { height: 25%; }
+    #days-of-week-div { word-spacing: 0.2rem; }
+    #day-name-span { font-size: 2.4rem; }
+    #day-month-span { font-size: 2rem; }
+    .day-box div:nth-child(2) img {
+        width: 8rem;
+        height: 8rem;
+    }
+    .day-box div:nth-child(3) { /* max-min temperature div */
+        margin-bottom: 0.2rem;
+        font-size: 2rem;
+    }
+    #storage-section { width: 35%; }
 }
 
-/*--------------------- Tablet portrait ---------------------*/
+/*-------------------------------- 1024 x 1366px --------------------------------*/
+@media only screen and (max-width: 64em) and (min-height: 85.375em) {
+    main { background-color: maroon; }
+    html { font-size: 62.5%; }
+    #today-weather-section { height: 77%; }
+    #tws-son { 
+        width: 60%;
+        height: 30%;
+        margin: 0;
+        position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+    }
+    #lower-section { height: 15%; }
+    #hourly-weather-div { 
+        height: 15%;
+        bottom: -20%;
+    }
+}
+
+/*-------------------------------- 900px --------------------------------*/
 @media only screen and (max-width: 56.25em) {
     main { background-color: blue; }
     html { font-size: 50%; }
+    #search-form { margin-right: 0; }
     #tws-son { width: 65%; }
     #storage-section { width: 40%; }
 }
 
-/*--------------------- Phone ---------------------*/
+/*-------------------------------- 768px --------------------------------*/
+@media only screen and (max-width: 48em) {
+    main { background-color: gray; }
+    :root { --color-light-gray: rgba(240, 240, 240, .6); }
+    ::-webkit-scrollbar { 
+        display: none; 
+    }
+    #today-weather-section { height: 52%; }
+    #tws-son { box-shadow: none; }
+    #lower-section { height: 40%; }
+    #daily-weather-div {
+        flex-direction: column;
+        border-top: 0.1rem solid var(--color-black);
+    } 
+    #hourly-weather-div { 
+        flex-direction: column;
+        height: 40%;
+        bottom: -50%;
+    }
+    .lower-section-body { overflow-y: scroll; }
+    .day-box {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0 1rem;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+    }
+    .day-box div:nth-child(2) img, .hour-box div:nth-child(2) img {
+        width: 5rem;
+        height: 5rem;
+    }
+    .day-box div:nth-child(2), 
+    .hour-box div:nth-child(2) { 
+        order: 3; 
+    }
+    .day-box div:nth-child(3), 
+    .hour-box div:nth-child(3) { 
+        order: 2; 
+        margin-left: auto;
+        margin-right: 0.5rem; 
+    }
+    .day-box div:nth-child(3) { /* max-min temperature div */
+        margin-bottom: 0;
+        margin-right: 0.5rem;
+        font-size: 2.4rem;
+    }
+    .hour-box { 
+        flex-direction: row;
+        flex: 0 1 0;
+        justify-content: space-between;
+        padding: 0 1rem;
+        margin: 0;
+        border: 0;
+    }
+    #days-of-week-div {
+        width: auto;
+        border: none; 
+        text-align: unset;
+    }
+    #tws-son { 
+        width: 90%;
+        margin: 0;
+        position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+    }
+    #storage-section { width: 50%; }
+}
+
+/*-------------------------------- 768 x 900px --------------------------------*/
+@media only screen and (max-width: 48em) and (min-height: 56.25em) {
+    main { background-color: fuchsia; }
+    html { font-size: 56.25%; }
+    #today-weather-section { height: 62%; }
+    #tws-son { 
+        width: 80%;
+        height: 50%;
+    }
+    #lower-section { height: 30%; }
+    #hourly-weather-div { 
+        height: 30%;
+        bottom: -50%;
+    }
+}
+
+/*-------------------------------- 600px --------------------------------*/
 @media only screen and (max-width: 37.5em) {
     main { background-color: gold; }
-    #tws-son { width: 100%; }
-    #location-input { width: 15rem; }
+    input#location-input { width: 18rem; }
     #storage-section { width: 60%; }
 }
 
-/*--------------------- Big desktop ---------------------*/
+/*-------------------------------- 480px --------------------------------*/
+@media only screen and (max-width: 30em) {
+    main { background-color: pink; }
+    #tws-son { height: 60%; }
+    #logo-text-div { margin-left: 1rem; }
+    #dawn-weather { display: none; }
+    #open-storage-btn { margin-right: 1rem; }
+    #location-label { font-size: 3rem; }
+    #temperature-label { font-size: 4rem; }
+    #currently-weather-icon {
+        width: 10rem;
+        height: 10rem;
+    }
+    #summary-label { 
+        font-size: 2.5rem; 
+        text-align: center;
+    }
+    #h-w-p-c-container div img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    #h-w-p-c-container div span {
+        font-size: 1.5rem;
+        margin-left: 0.2rem;
+    }
+    #stored-places-label { font-size: 2.8rem; }
+    #stored-places-div { font-size: 1.5rem;}
+    .set-place { margin-right: 1rem; }
+}
+
+/*-------------------------------- 360px --------------------------------*/
+@media only screen and (max-width: 22.5em) {
+    main { background-color: lime; }
+    #location-label { font-size: 2.5rem; }
+    #toggle-weather-btn img {
+        width: 4rem;
+        height: 4rem;
+    }
+    #temperature-label { font-size: 3rem; }
+    #currently-weather-icon {
+        width: 8rem;
+        height: 8rem;
+    }
+    #summary-label { font-size: 2rem; }
+    #stored-places-label { font-size: 2.6rem; }
+    #stored-places-div { font-size: 1.4rem;}
+}
+
+/*-------------------------------- 320px --------------------------------*/
+@media only screen and (max-width: 20em) {
+    main { background-color: cyan; }
+    #h-w-p-c-container div img {
+        width: 2rem;
+        height: 2rem;
+    }
+    #stored-places-div { font-size: 1.25rem;}
+}
+
+/*-------------------------------- 1800px + --------------------------------*/
 @media only screen and (min-width: 112.5em) {
     main { background-color: black; }
     html { font-size: 75%; }
+    #currently-weather-icon {
+        width: 18rem;
+        height: 18rem;
+    }
+    .day-box div:nth-child(2) img {
+        width: 12rem;
+        height: 12rem;
+    }
+    .hour-box div:nth-child(2) img {
+        width: 9rem;
+        height: 9rem;
+    }
 }

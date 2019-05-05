@@ -20,7 +20,7 @@
 
 <body>
     <div id="app-loader">
-        <div class="lds-hourglass center"></div>
+        <div class="lds-hourglass"></div>
     </div>
 
     <main hidden>
@@ -28,7 +28,7 @@
         <section id="upper-section">
             <!-- Logo -->
             <div id="logo-text-div">
-                <img src="resources/icons/logo-icon.png" alt="Logo icon" id="logo-icon">
+                <img id="logo-icon" src="resources/icons/logo-icon.png" alt="Logo icon">
                 <div id="dawn-weather">
                     <span>Dawn</span>
                     <span>Weather</span>
@@ -51,7 +51,7 @@
         <section id="today-weather-section">
             <div id="tws-son">
                 <div class="display-flex" id="label-24h-container">
-                    <h1 id="location-label">Belrade</h1>
+                    <h1 id="location-label">Beograd</h1>
                     <button id="toggle-weather-btn" title="Weather for the next 24h">
                         <img src="resources/icons/24-hours.png" alt="24h icon" class="icon-m" data-active="false">
                     </button>
@@ -115,13 +115,13 @@
             <div id="hourly-weather-div" class="lower-section-body" data-visible="false">
                 <div class="display-flex hour-box display-none">
                     <div>
-                        <span id="hour-span">19:00</span>
+                        <span>19:00</span>
                     </div>
                     <div>
                         <img class="icon-l" src="resources/icons/weather-icons/clear-day.png" alt="Weather icon">
                     </div>
                     <div>
-                        <span id="current-temp">18&#176;</span>
+                        <span>18&#176;</span>
                     </div>
                 </div>
             </div>
