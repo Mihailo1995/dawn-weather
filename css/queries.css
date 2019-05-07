@@ -17,13 +17,13 @@
 
 /*-------------------------------- 1800px --------------------------------*/
 @media only screen and (max-width: 112.5em) {
-    main { background-color: red; }
+    /* main { background-color: red; } */
     html { font-size: 62.5%; }
 }
 
 /*-------------------------------- 1200px --------------------------------*/
 @media only screen and (max-width: 75em) {
-    main { background-color: green; }
+    /* main { background-color: green; } */
     html { font-size: 56.25%; }
     #tws-son { width: 60%; }
     #today-weather-section { height: 67%; }
@@ -48,7 +48,7 @@
 
 /*-------------------------------- 1024 x 1366px --------------------------------*/
 @media only screen and (max-width: 64em) and (min-height: 85.375em) {
-    main { background-color: maroon; }
+    /* main { background-color: maroon; } */
     html { font-size: 62.5%; }
     #today-weather-section { height: 77%; }
     #tws-son { 
@@ -69,7 +69,7 @@
 
 /*-------------------------------- 900px --------------------------------*/
 @media only screen and (max-width: 56.25em) {
-    main { background-color: blue; }
+    /* main { background-color: blue; } */
     html { font-size: 50%; }
     #search-form { margin-right: 0; }
     #tws-son { width: 65%; }
@@ -78,7 +78,7 @@
 
 /*-------------------------------- 768px --------------------------------*/
 @media only screen and (max-width: 48em) {
-    main { background-color: gray; }
+    /* main { background-color: gray; } */
     ::-webkit-scrollbar { 
         display: none; 
     }
@@ -149,7 +149,7 @@
 
 /*-------------------------------- 768 x 900px --------------------------------*/
 @media only screen and (max-width: 48em) and (min-height: 56.25em) {
-    main { background-color: fuchsia; }
+    /* main { background-color: fuchsia; } */
     html { font-size: 56.25%; }
     #today-weather-section { height: 62%; }
     #tws-son { 
@@ -165,14 +165,14 @@
 
 /*-------------------------------- 600px --------------------------------*/
 @media only screen and (max-width: 37.5em) {
-    main { background-color: gold; }
+    /* main { background-color: gold; } */
     input#location-input { width: 18rem; }
     #storage-section { width: 60%; }
 }
 
 /*-------------------------------- 480px --------------------------------*/
 @media only screen and (max-width: 30em) {
-    main { background-color: pink; }
+    /* main { background-color: pink; } */
     #tws-son { height: 60%; }
     #logo-text-div { margin-left: 1rem; }
     #dawn-weather { display: none; }
@@ -202,7 +202,7 @@
 
 /*-------------------------------- 360px --------------------------------*/
 @media only screen and (max-width: 22.5em) {
-    main { background-color: lime; }
+    /* main { background-color: lime; } */
     #location-label { font-size: 2.5rem; }
     #toggle-weather-btn img {
         width: 4rem;
@@ -220,7 +220,7 @@
 
 /*-------------------------------- 320px --------------------------------*/
 @media only screen and (max-width: 20em) {
-    main { background-color: cyan; }
+    /* main { background-color: cyan; } */
     #h-w-p-c-container div img {
         width: 2rem;
         height: 2rem;
@@ -230,7 +230,7 @@
 
 /*-------------------------------- 1800px + --------------------------------*/
 @media only screen and (min-width: 112.5em) {
-    main { background-color: black; }
+    /* main { background-color: black; } */
     html { font-size: 75%; }
     #currently-weather-icon {
         width: 18rem;
