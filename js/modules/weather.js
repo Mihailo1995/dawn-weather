@@ -53,8 +53,8 @@ const Weather = function () {
     const _getDarkSkyData = (url, location) => {
         axios.get(url)
             .then(res => {
-                console.log("DarkSky: res.data", res.data);
-                console.log(location);
+                // console.log("DarkSky: res.data", res.data);
+                // console.log(location);
                 ui.displayWeatherData(res.data, location);
             })
             .catch(err => console.error(err));
@@ -66,7 +66,7 @@ const Weather = function () {
 
         axios.get(openCageURL)
             .then(res => {
-                console.log("OpenCage: res.data.results", res.data.results);
+                // console.log("OpenCage: res.data.results", res.data.results);
                 if (res.data.results.length === 0) {
                     console.error("Nonexistent location.");
                     alert("Nonexistent location.");

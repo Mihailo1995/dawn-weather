@@ -22,6 +22,7 @@
 html, body, main {
 	width: 100vw;
 	height: 100%;
+	min-height: 500px;
 }
 
 html {
@@ -36,7 +37,7 @@ body {
 }
 
 main {
-	/* background-image: url("../resources/img/weather-img/clear-day.jpg"); */
+	background-image: url("../resources/img/weather-img/clear-day.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center; /* right bottom  - 100% 100%, left top  - 0 0 (default) */
@@ -53,10 +54,9 @@ button {
 #app-loader {
 	width: 100vw;
 	height: 100vh;
-	background-image: url("../resources/img/bg-sun-loading.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 10;
 }
 
 .lds-hourglass {
@@ -76,8 +76,8 @@ button {
 	height: 0;
 	margin: 0.6rem;
 	box-sizing: border-box;
-	border: 2.6rem solid var(--color-black);
-	border-color: var(--color-black) transparent var(--color-black) transparent;
+	border: 2.6rem solid var(--color-ltblue);
+	border-color: var(--color-ltblue) transparent var(--color-ltblue) transparent;
 	animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {
@@ -370,7 +370,7 @@ input#location-input:focus {
 	width: 30%;
 	height: 100%;
 	border-left: 0.1rem solid var(--color-black);
-	z-index: 4;
+	z-index: 2;
 	transition: right .5s;
 }
 

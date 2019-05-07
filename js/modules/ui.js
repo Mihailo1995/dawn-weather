@@ -5,13 +5,20 @@ const UI = function () {
     // Show the app, hide the loading screen
     const showApp = () => {
         document.querySelector("#app-loader").classList.add("display-none");
-        document.querySelector("main").removeAttribute("hidden");
     }
 
     // Hide the app, show the loading screen
     const loadApp = () => {
         document.querySelector("#app-loader").classList.remove("display-none");
-        document.querySelector("main").setAttribute("hidden", true);
+    }
+
+    const showSections = () => {
+        document.querySelector("#today-weather-section").classList.remove("display-none");
+        document.querySelector("#lower-section").classList.remove("display-none");
+    }
+    const hideSections = () => {
+        document.querySelector("#today-weather-section").classList.add("display-none");
+        document.querySelector("#lower-section").classList.add("display-none");
     }
 
     // Storage button
@@ -70,7 +77,7 @@ const UI = function () {
         /***** Daily weather *****/
         // removes 8 days divs of previously displayed location
         while (dailyWeatherDiv.children[1]) dailyWeatherDiv.children[1].remove();
-        
+
         for (let i = 0; i <= 7; i++) {
             // clone the node and remove class="display-none"
             let dailyWeatherClone = dailyWeatherDiv.children[0].cloneNode(true);
@@ -110,13 +117,16 @@ const UI = function () {
             // append the hourlyWeatherClone
             hourlyWeatherDiv.appendChild(hourlyWeatherClone);
         }
-
+        
+        ui.showSections();
         ui.showApp();
     }
 
     return {
         showApp,
         loadApp,
+        showSections,
+        hideSections, 
         displayWeatherData
     }
 }

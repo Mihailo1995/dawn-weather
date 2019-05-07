@@ -14,6 +14,8 @@ window.onload = function () {
         // get weather for the last place stored
         weather.getWeather(placesArray[placesArray.length - 1], false);
     } else {
+        // hide sections if local storage is empty array
+        ui.hideSections();
         // show app with the "beograd" as a default place set in a local storage
         ui.showApp();
     }
