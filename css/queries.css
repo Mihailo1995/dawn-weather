@@ -228,6 +228,25 @@
     #stored-places-div { font-size: 1.25rem;}
 }
 
+/* MIN-WIDTH */
+
+/*-------------------------------- 320px + --------------------------------*/
+@media only screen and (min-width: 20em) {
+    html { font-size: 50%; }
+    main { min-height: 250px; }
+}
+
+/*-------------------------------- 768px + --------------------------------*/
+@media only screen and (min-width: 48em) {
+    main { min-height: 550px; }
+}
+
+/*-------------------------------- 1200px + --------------------------------*/
+@media only screen and (min-width: 75em) {
+    html { font-size: 62.5%; }
+    main { min-height: 620px; }
+}
+
 /*-------------------------------- 1800px + --------------------------------*/
 @media only screen and (min-width: 112.5em) {
     /* main { background-color: black; } */
