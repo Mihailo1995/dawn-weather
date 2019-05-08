@@ -231,6 +231,7 @@
 /*-------------------------------- 1800px + --------------------------------*/
 @media only screen and (min-width: 112.5em) {
     /* main { background-color: black; } */
+    main { min-height: 900px; }
     html { font-size: 75%; }
     #currently-weather-icon {
         width: 18rem;
